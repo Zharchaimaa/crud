@@ -1,0 +1,146 @@
+
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Dashboard
+      
+    </div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data position-absolute text-center">
+        <h1 style="text-align: center;margin-top: 25px;">Gestion des Utilisateurs</h1>
+        <button id="logout" class="btn btn-outline-warning" style="float: left;margin-top: 80px;" (click)="logout()">Logout</button>
+        <nav class="navbar">
+          <input class="form-control" type="text" name="username" [(ngModel)]="username" (ngModelChange)="Search()" placeholder="entrer username à chercher">
+        </nav>
+        
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <button class="btn btn-outline-success add" data-bs-toggle="modal" style="float: left;" data-bs-target="#addEmployee" type="submit" (click)="vider()">Ajouter un Utilisateur</button>
+                    <button (click)="vider()">Aymane</button>
+                  </div>
+                </div>
+            </nav>
+        
+        
+        
+            <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col" (click)="sort('id')">id&nbsp;<i class="fa fa-sort"></i></th>
+                    <th scope="col" (click)="sort('email')">Email<!--&nbsp;<i class="fa fa-sort"></i>--></th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- sorting and pagination| orderBy: key :reverse | paginate : {itemsPerPage:5,currentPage : p};-->
+                  <tr *ngFor="let employee of empList">
+                    <td>{{employee?.id}}</td>
+                    <td>{{employee?.email}}</td>
+                    <td>{{employee?.username}}</td>
+                    <td>{{employee?.roles[0]?.name}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editEmployee" (click)="editUser(employee)">Modifier</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="vider()">Supprimer</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+               <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+              </table>
+        
+          
+          <!-- Add employee modal 
+          <div>
+          <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ajouter un nouveau Utilisateur</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                    <form [formGroup]="empDetail">
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Identifiant </label>
+                        <input type="text" formControlName="id" class="form-control" id="id" aria-describedby="emailHelp">
+                      </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email </label>
+                            <input type="text" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Username </label>
+                          <input type="email" formControlName="username" class="form-control" id="username" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Role </label>
+                            <input type="text" formControlName="role" class="form-control" id="role" aria-describedby="emailHelp">
+                          </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="vider()">Ajouter Utilisateur</button>
+                          </div>
+                        
+                        </form>
+                     </div>
+                    
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          </div>-->
+        
+          
+          <!-- Edit employee modal -->
+          <div>
+          <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header" *ngIf="isUpdated">
+
+                  <h5 class="modal-title" id="exampleModalLabel">Modifier un utilisateur </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+        
+                    <form [formGroup]="empDetail" *ngFor="empDetail">
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Identifiant </label>
+                        <input type="text" formControlName="id" class="form-control" id="id" aria-describedby="emailHelp">
+                      </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email </label>
+                            <input type="text" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Username</label>
+                          <input type="email" formControlName="username" class="form-control" id="username" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Role </label>
+                            <input type="text" formControlName="role" class="form-control" id="role" aria-describedby="emailHelp">
+                          </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-outline-success" (click)="updateUser()" data-bs-dismiss="modal">Modifier </button>
+                          </div>
+                      </form>
+        
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+     </div>
+  
+  
