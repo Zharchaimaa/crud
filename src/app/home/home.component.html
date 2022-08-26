@@ -11,3 +11,57 @@
 <ng-template #loggedOut>
   Please login.
 </ng-template> -->
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="/" class="nav-link" routerLinkActive="active">Liste des utilisateurs</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="ajouter" class="nav-link" routerLinkActive="active"> Ajouter Utilisateur</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <nav class="navbar">
+    <input class="form-control" type="text" name="username" [(ngModel)]="username" (ngModelChange)="Search()" placeholder="entrer le mot à chercher">
+  </nav>
+  <div class="card">
+    <div class="card-body">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2>list des Utilisateurs</h2>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col" >Id<button  (click)="sort()"></button><button  (click)="sortV1()"></button>&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" >Email<!--&nbsp;<i class="fa fa-sort"></i>--></th>
+                <th scope="col">Username</th>
+                <th scope="col">Role</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of empList">
+                <td>{{employee?.id}}</td>
+                <td>{{employee?.email}}</td>
+                <td>{{employee?.username}}</td>
+                <td>{{employee?.roles[0]?.name}}</td>
+                <td>
+                  <!-- (click)="editUser(employee)" -->
+                    <button type="button" class="btn btn-outline-primary me-2" >Modifier</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteUser(employee)">Supprimer</button>
+                    <button (click)="employeeDetails(employee.id)" class="btn btn-outline-info" style="margin-left: 10px">Details</button>
+                </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

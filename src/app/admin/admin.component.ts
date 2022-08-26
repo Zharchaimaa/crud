@@ -112,4 +112,7 @@ export class AdminComponent implements OnInit {
       });
   
     }
+    employeeDetails(id :number){
+      this.route.navigate(['details',id]);
+    }
 }

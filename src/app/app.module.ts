@@ -16,6 +16,11 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartComponent } from './chart/chart.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { CreateComponent } from './create/create.component';
+import { DetailsComponent } from './details/details.component';
+import { VisualiserComponent } from './visualiser/visualiser.component';
+import { UpdateComponent } from './update/update.component';
+import { FileDetailsComponent } from './file-details/file-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AdminComponent,
     DashboardComponent,
     ChartComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    CreateComponent,
+    DetailsComponent,
+    VisualiserComponent,
+    UpdateComponent,
+    FileDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@
         <h1 style="text-align: center;margin-top: 25px;">Gestion des Utilisateurs</h1>
         <button id="logout" class="btn btn-outline-warning" style="float: left;margin-top: 80px;" (click)="logout()">Logout</button>
         <nav class="navbar">
-          <input class="form-control" type="text" name="username" [(ngModel)]="username" (ngModelChange)="Search()" placeholder="entrer username à chercher">
+          <input class="form-control" type="text" name="username" [(ngModel)]="username" (ngModelChange)="Search()" placeholder="entrer le mot à chercher">
         </nav>
         
         <div class="container-fluid">
@@ -20,7 +20,6 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <button class="btn btn-outline-success add" data-bs-toggle="modal" style="float: left;" data-bs-target="#addEmployee" type="submit" (click)="vider()">Ajouter un Utilisateur</button>
-                    <button (click)="vider()">Aymane</button>
                   </div>
                 </div>
             </nav>
@@ -46,7 +45,8 @@
                     <td>{{employee?.roles[0]?.name}}</td>
                     <td>
                         <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editEmployee" (click)="editUser(employee)">Modifier</button>
-                        <button type="button" class="btn btn-outline-danger" (click)="vider()">Supprimer</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteUser(employee)">Supprimer</button>
+                        <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
                     </td>
                   </tr>
                   
