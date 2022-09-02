@@ -1,0 +1,51 @@
+<nav class="navbar">
+    <div class="parent">
+   <div class="child position-relative">
+    <i class="fa fa-search position-absolute"></i>
+     <input class="form-control" type="search" name="name" [(ngModel)]="name" (ngModelChange)="Search()"
+      placeholder="Veuillez entrer le mot à chercher " />
+    </div>
+  </div> 
+  </nav>
+<div class="card">
+    <div class="card-body">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2>Liste des Messages</h2> 
+         
+        </div>
+        <div class="panel-body">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col" >Id<!--<button (click)="sort()"></button><button  (click)="sortV1()"></button>--><i class="fa fa-arrow-up" (click)="sort()"></i>&nbsp;<i class="fa fa-arrow-down" (click)="sortV1()"></i></th>
+                <th scope="col" >name<!--<button (click)="sortV1()"></button>--><i class="fa fa-arrow-up" (click)="sortV2()"></i>&nbsp; <i class="fa fa-arrow-down" (click)="sortV4()"></i>
+                </th>
+                <th scope="col">email<!--<button (click)="sortV3()"></button>--><i class="fa fa-arrow-up" (click)="sortV3()"></i> &nbsp;<i class="fa fa-arrow-down" (click)="sortV5()"></i></th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let msg of messages" >
+                <td>{{msg?.id}}</td>
+                <td>{{msg?.name}}</td>
+                <td>{{msg?.email}}</td>
+                <td>{{msg?.description}}</td>
+                <td>
+                  <!-- (click)="editUser(employee)" | paginate: { itemsPerPage: 10, currentPage: p }  <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+                  <a routerLink="modifier" routerLinkActive="active">
+                  <button type="button" class="btn btn-outline-primary me-2" (click)="editMessage(msg)"><i class="fa fa-edit"></i>&nbsp; Modifier</button></a>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteMessage(msg)"><i class="fa fa-trash"></i>&nbsp;Supprimer</button>
+                    <button (click)="messageDetails(msg.id)" class="btn btn-outline-info" style="margin-left: 10px"><i class="fa fa-info-circle"></i>&nbsp;Détails</button>
+                </td>
+                </tr>
+                
+            </tbody>
+          </table>
+         
+        </div>
+      </div>
+  <router-outlet></router-outlet>
+    </div>
+  </div>

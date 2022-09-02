@@ -17,10 +17,10 @@ const httpOptions = {
 export class AuthService {
 id :any;
   private loginUrl = 'http://localhost:8080/app/auth/login';
-  private addEmpURL = 'http://localhost:8080/app/admin/addUsers';
+  /*private addEmpURL = 'http://localhost:8080/app/admin/addUsers';
   private getEmpURL = 'http://localhost:8080/app/admin/getUsers';
   private updateEmpUrl = 'http://localhost:8080/app/auth/updateUser';
-  private deleteEmpUrl = 'http://localhost:8080/app/admin/deleteUser';
+  private deleteEmpUrl = 'http://localhost:8080/app/admin/deleteUser';*/
   constructor(private http: HttpClient) {
   }
 
@@ -30,7 +30,7 @@ id :any;
 
   /*signUp(info: SignUpInfo): Observable<string> {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
-  }*/
+  }
   getAllUser() : Observable<User[]>{
     return this.http.get<User[]>(this.getEmpURL);
   }
@@ -42,5 +42,5 @@ id :any;
   }
   deleteUser(user:User) : Observable<User>{
     return this.http.delete<User>(this.deleteEmpUrl+'/'+user.id);
-  }
+  }*/
 }

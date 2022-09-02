@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <!-- Links -->
+ <!--<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  
   <ul class="navbar-nav">
     <li class="nav-item">
         <a routerLink="profile" class="nav-link" routerLinkActive="active">Profile</a>
@@ -8,25 +8,35 @@
         <a routerLink="login" class="nav-link" routerLinkActive="active"> Déconnexion</a>
     </li>
   </ul>
-</nav>
+</nav> -->
 
 <div class="container">
   <nav class="navbar">
-    <input class="form-control" type="text" name="username" [(ngModel)]="filename" (ngModelChange)="Search()" placeholder="entrer le mot à chercher">
+    <div class="parent">
+      <div class="child position-relative">
+       <i class="fa fa-search position-absolute"></i>
+       <input class="form-control" type="text" name="username" [(ngModel)]="filename" (ngModelChange)="Search()" placeholder="entrer le mot à chercher">
+       </div>
+     </div>   
+    
   </nav>
   <div class="card">
     <div class="card-body">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h2>Liste des fichiers Controlés</h2>
+          <h2>Liste des fichiers Controlés
+            <span>
+              <button class="btn btn-outline-info" (click)="exporter()" style="float: right; margin-top: 0px; margin-right: 20px;">Exporter</button>
+            </span>
+          </h2>
         </div>
         <div class="panel-body">
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th>id <button  (click)="sort()"></button> <button  (click)="sortV1()"></button><i class='fas fa-sort fa-spin fa-3x'></i></th>
-                <th>entite <button  (click)="sortV4()"></button><i class='fas fa-sort fa-spin fa-3x'></i></th>
-                <th>filename <button  (click)="sortV3()"></button><i class='fas fa-sort fa-spin fa-3x'></i></th>
+                <th>id <!--<button  (click)="sort()"></button> <button  (click)="sortV1()"></button>--><i class="fa fa-arrow-up" (click)="sort()"></i>&nbsp;<i class="fa fa-arrow-down" (click)="sortV1()"></i></th>
+                <th>entite <!--<button  (click)="sortV4()"></button><i class='fas fa-sort fa-spin fa-3x'></i>--><i class="fa fa-arrow-up" (click)="sortV2()"></i>&nbsp; <i class="fa fa-arrow-down" (click)="sortV4()"></i></th>
+                <th>filename <!--<button  (click)="sortV3()"></button><i class='fas fa-sort fa-spin fa-3x'></i>--><i class="fa fa-arrow-up" (click)="sortV3()"></i> &nbsp;<i class="fa fa-arrow-down" (click)="sortV5()"></i></th>
                 <th>filedate</th>
                 <th>dateTraitement</th>
                 <th>validName</th>
@@ -49,14 +59,14 @@
                 <td>{{file?.validColumn}}</td>
                 <td>{{file?.validMontant}}</td>
                 <td>
-                    <button (click)="fileDetails(file.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                    <button (click)="fileDetails(file.id)" class="btn btn-outline-info" style="margin-left: 10px"><i class="fa fa-info-circle"></i>&nbsp;Détails</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-  <router-outlet></router-outlet>
+  <!-- router-outlet></!-->
     </div>
   </div>
 </div>

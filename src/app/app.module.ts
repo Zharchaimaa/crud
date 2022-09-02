@@ -3,14 +3,12 @@ import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 //import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -21,6 +19,15 @@ import { DetailsComponent } from './details/details.component';
 import { VisualiserComponent } from './visualiser/visualiser.component';
 import { UpdateComponent } from './update/update.component';
 import { FileDetailsComponent } from './file-details/file-details.component';
+import { TodoComponent } from './todo/todo.component';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
+import { CreatetodoComponent } from './createtodo/createtodo.component';
+import { UpdatetodoComponent } from './updatetodo/updatetodo.component';
+import { GestionComponent } from './gestion/gestion.component';
+import { ExporterComponent } from './exporter/exporter.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MessageComponent } from './message/message.component';
+import { GestionMComponent } from './gestion-m/gestion-m.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,16 @@ import { FileDetailsComponent } from './file-details/file-details.component';
     DetailsComponent,
     VisualiserComponent,
     UpdateComponent,
-    FileDetailsComponent
+    FileDetailsComponent,
+    TodoComponent,
+    TodoDetailsComponent,
+    CreatetodoComponent,
+    UpdatetodoComponent,
+    GestionComponent,
+    ExporterComponent,
+    SidenavComponent,
+    MessageComponent,
+    GestionMComponent
   ],
   imports: [
     BrowserModule,
