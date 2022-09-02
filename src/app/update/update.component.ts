@@ -19,10 +19,10 @@ export class UpdateComponent implements OnInit {
 
     this.id = this.router.snapshot.params['id'];
     
-    this.userService.getAllUserById(this.id)
+    this.userService.getUserById(this.id)
       .subscribe(data => {
         console.log(data)
-        this.employee[0] = data;
+        this.employee = data;
       }, error => console.log(error));
   }
   updateEmployee() {
@@ -38,7 +38,7 @@ export class UpdateComponent implements OnInit {
   }
 
   gotoList() {
-    this.route.navigate(['/admin']);
+    this.route.navigate(['/']);
   }
 
 }
