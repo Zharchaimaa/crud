@@ -11,6 +11,8 @@ export class ChartComponent implements OnInit {
   chart1:any;
   chart2:any;
   chart3:any;
+  chart4:any;
+  test:any;
   n:any;
   m:any;
   o:any;
@@ -29,22 +31,53 @@ export class ChartComponent implements OnInit {
     this.chart3 =document.getElementById('my_third_chart');
     Chart.register(...registerables);
     this.loadChart3();
+    this.chart4 = document.getElementById('my_fourth_chart');
+    Chart.register(...registerables);
+    this.loadChart4();
   }
   loadChart3(){
     new Chart(this.chart3,
       {
         type:'pie',
         data:{ labels:[
-          'Red',
-          'Blue',
-          'Yellow'
+          'valid name',
+          'valid date',
+          'valid montant',
+          'valid column'
         ],
           datasets:[{
-            data:[300,50,100],
+            label: 'Fichier ko',
+            data:[300,50,100,30],
             backgroundColor: [
               'rgb(255, 99, 132)',
               'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)'
+              'rgb(255, 205, 86)',
+              'rgb(50,205,50)'
+            ],
+            hoverOffset: 4
+          }]
+        }
+      })
+  }
+  
+  loadChart4(){
+    new Chart(this.chart4,
+      {
+        type:'pie',
+        data:{ labels:[
+          'valid name',
+          'valid date',
+          'valid montant',
+          'valid column'
+        ],
+          datasets:[{
+            label: 'Fichier ok',
+            data:[300,50,100,35],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)',
+              'rgb(50,205,50)'
             ],
             hoverOffset: 4
           }]
@@ -136,17 +169,18 @@ datasets:[{
     });
   }
   countFileOk(){
-    window.location.reload();
-    /*this.fileService.countFileOK();
+    
+    this.fileService.countFileOK();
     this.fileService.countFileOK().subscribe(res=>{
       this.m = res;
       console.log(res);
      
     },err=>{
       console.log("erreur")
-    });*/
+    });
   }
   countFileKo(){
+    window.location.reload();
     this.fileService.countFileOK();
     this.fileService.countFileOK().subscribe(res=>{
       this.c= res;
@@ -157,7 +191,8 @@ datasets:[{
     });
   }
   countVNOK(){
-    this.fileService.countVNOK();
+   this.test= this.fileService.countVNOK();
+   console.log(this.test);
     this.fileService.countVNOK().subscribe(res=>{
       this.o=res;
       console.log(res);
