@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { File } from '../model/file';
+import { FileService } from '../services/file.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -12,21 +13,21 @@ export class FileDetailsComponent implements OnInit {
   id:number;
   file: File;
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: UserService) { }
+    private fileService: FileService) { }
 
   ngOnInit(): void {
     this.file = new File();
 
     this.id = this.route.snapshot.params['id'];
     
-    this.employeeService.getAllUserById(this.id)
+    this.fileService.getFileById(this.id)
       .subscribe(data => {
         console.log(data)
-        this.file[0]= data;
+        this.file= data;
       }, error => console.log(error));
 
   }
   list(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/visualiser']);
   }
 }

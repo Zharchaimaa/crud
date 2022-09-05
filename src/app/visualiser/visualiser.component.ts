@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { File } from '../model/file';
 import { FileService } from '../services/file.service';
-
+import Swal from 'sweetalert2'
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-visualiser',
@@ -14,13 +15,13 @@ export class VisualiserComponent implements OnInit {
   files: Observable<File[]>;
   fileList : File[] = [];
   filename:any;
-  constructor(private userService: FileService,private route :Router) { }
+  constructor(private fileService: FileService,private route :Router,private userService: UserService) { }
 
   ngOnInit(): void {
     this.getAllFile();
   }
   getAllFile(){
-    this.userService.getAllFile().subscribe(res=>{
+    this.fileService.getAllFile().subscribe(res=>{
       console.log(res);
       this.fileList = res;
     },err=>{
@@ -47,13 +48,21 @@ export class VisualiserComponent implements OnInit {
     this.fileList= this.fileList.sort((a:any,b:any)=>{return a.id-b.id})
     
   }
-  /*sortv2(){
+  
+  sortV2(){
     this.fileList.sort(function (x, y) {
-      let a = new Date(x.validDate),
-          b = new Date(y.validDate);
-      return a - b;
+      let a = x.entite.toUpperCase(),
+          b = y.entite.toUpperCase();
+      return a == b ? 0 : a > b ? 1 : -1;
   });
-  }*/
+  }
+  sortV4(){
+    this.fileList.sort(function (x, y) {
+      let a = x.entite.toUpperCase(),
+          b = y.entite.toUpperCase();
+      return a == b ? 0 : a < b ? 1 : -1;
+  });
+  }
   sortV3(){
     this.fileList.sort(function (x, y) {
       let a = x.filename.toUpperCase(),
@@ -61,12 +70,40 @@ export class VisualiserComponent implements OnInit {
       return a == b ? 0 : a > b ? 1 : -1;
   });
   }
-  sortV4(){
+  sortV5(){
     this.fileList.sort(function (x, y) {
       let a = x.filename.toUpperCase(),
           b = y.filename.toUpperCase();
-      return a == b ? 0 : a > b ? 1 : -1;
+      return a == b ? 0 : a < b ? 1 : -1;
   });
   }
-
+  exporter(){
+    Swal.fire({
+      title:'Êtes-vous sûr de vouloir exporter ?',
+      text:"Voulez vous exprter cette data ?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'exporter'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.userService.exporter().subscribe(res=>{
+          console.log(res);
+         // alert('User deleted successfully');
+          
+          this.getAllFile();
+        },err => {
+          console.log(err);
+        });
+    
+          Swal.fire({
+            title: 'exported!',
+            text:'user has been exported.',
+            icon: 'success',
+            timer: 3000})
+      }
+    })
+      
+  }
 }

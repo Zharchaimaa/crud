@@ -20,15 +20,15 @@ empList : User[] = [];
 
     this.id = this.route.snapshot.params['id'];
     
-    this.employeeService.getAllUserById(this.id)
+    this.employeeService.getUserById(this.id)
       .subscribe(data => {
         console.log(data)
-        this.empList = data;
+        this.employee = data;
       }, error => console.log(error));
 
   }
   list(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/gestion']);
   }
 
 }

@@ -15,6 +15,7 @@ User=new User();
   constructor(private router: Router,private userService: UserService) { }
 
   ngOnInit(): void {
+    this.newEmployee();
   }
   newEmployee(): void {
     this.submitted = false;
@@ -22,7 +23,11 @@ User=new User();
   }
   save() {
     this.userService.addUser(this.employee)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => 
+        {
+          console.log(data)
+          //this.save();
+        }, error => console.log(error));
     this.employee = new User();
     this.gotoList();
   }
@@ -32,7 +37,7 @@ User=new User();
   }
 
   gotoList() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/gestion']);
   }
 
 }

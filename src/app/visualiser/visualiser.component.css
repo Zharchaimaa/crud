@@ -1,0 +1,31 @@
+.parent {
+    height: 100%;
+    /*background: #CCCCCC;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .child {
+    /*background-color: #FFFF00;*/
+   /* width: 100px;
+    height: 100px;*/
+    width: 400px;
+  height: 30px;
+ /* background-color:rgb(114, 211, 255);*/
+    }
+    .form-control{
+        background-color:rgb(208, 237, 251);
+       color: rgb(22, 2, 86);
+    }
+   .fa-search{
+        font-size: 1rem;
+        
+        color: rgb(6, 6, 6);
+        top: 1rem;
+        left: 1rem
+    }
+    
+    input {
+        padding-left: 2.5rem;
+        
+    }

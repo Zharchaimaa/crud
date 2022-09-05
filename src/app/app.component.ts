@@ -10,7 +10,7 @@ import { TokenStorageService } from './auth/token-storage.service';
 export class AppComponent implements OnInit {
   roles: string[];
   authority: string;
-
+  //sideBarOpen = true;
   constructor(private tokenStorage: TokenStorageService,private route : Router) { }
 
   ngOnInit() {
@@ -30,4 +30,7 @@ export class AppComponent implements OnInit {
       });
     }
   }
+  /*sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }*/
 }
