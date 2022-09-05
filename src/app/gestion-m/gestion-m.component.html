@@ -2,7 +2,7 @@
     <div class="parent">
    <div class="child position-relative">
     <i class="fa fa-search position-absolute"></i>
-     <input class="form-control" type="search" name="name" [(ngModel)]="name" (ngModelChange)="Search()"
+     <input class="form-control" type="search" name="username" [(ngModel)]="username" (ngModelChange)="Search()"
       placeholder="Veuillez entrer le mot à chercher " />
     </div>
   </div> 
@@ -19,7 +19,7 @@
             <thead>
               <tr>
                 <th scope="col" >Id<!--<button (click)="sort()"></button><button  (click)="sortV1()"></button>--><i class="fa fa-arrow-up" (click)="sort()"></i>&nbsp;<i class="fa fa-arrow-down" (click)="sortV1()"></i></th>
-                <th scope="col" >name<!--<button (click)="sortV1()"></button>--><i class="fa fa-arrow-up" (click)="sortV2()"></i>&nbsp; <i class="fa fa-arrow-down" (click)="sortV4()"></i>
+                <th scope="col" >username<!--<button (click)="sortV1()"></button>--><i class="fa fa-arrow-up" (click)="sortV2()"></i>&nbsp; <i class="fa fa-arrow-down" (click)="sortV4()"></i>
                 </th>
                 <th scope="col">email<!--<button (click)="sortV3()"></button>--><i class="fa fa-arrow-up" (click)="sortV3()"></i> &nbsp;<i class="fa fa-arrow-down" (click)="sortV5()"></i></th>
                 <th scope="col">Description</th>
@@ -29,7 +29,7 @@
             <tbody>
               <tr *ngFor="let msg of messages" >
                 <td>{{msg?.id}}</td>
-                <td>{{msg?.name}}</td>
+                <td>{{msg?.username}}</td>
                 <td>{{msg?.email}}</td>
                 <td>{{msg?.description}}</td>
                 <td>

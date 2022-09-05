@@ -22,8 +22,8 @@ export class UserService {
   //private countEmpUrl = 'http://localhost:8080/app/admin/count';
   //private countEmpUrl = 'http://localhost:8080/app/admin/count';
  // private countEmpUrl = 'http://localhost:8080/app/admin/count';
-  private getMsgURL = 'http://localhost:8080/app/admin/getAllUsers';
-  private deleteMsgUrl = 'http://localhost:8080/app/admin/delete';
+  private getMsgURL = 'http://localhost:8080/app/admin/getAllMessage';
+  private deleteMsgUrl = 'http://localhost:8080/app/admin/deleteMessage';
   constructor(private http: HttpClient) { }
 
   getUserBoard(): Observable<string> {

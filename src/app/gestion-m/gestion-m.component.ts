@@ -10,7 +10,7 @@ import Swal from 'sweetalert2'
 })
 export class GestionMComponent implements OnInit {
 messages : Message[]=[];
-name:any;
+username:any;
   constructor(private userService : UserService, private route :Router) { }
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ name:any;
       if(result.isConfirmed){
         this.userService.deleteMessage(msg).subscribe(res=>{
           console.log(res);
-          alert('Message deleted successfully');
+          //alert('Message deleted successfully');
           this.getAllMessages();
         },err => {
           console.log(err);
@@ -56,11 +56,11 @@ name:any;
         this.route.navigate(['details',id]);
       }
       Search(){
-        if(this.name ==""){
+        if(this.username ==""){
           this.ngOnInit();
         }else{
           this.messages = this.messages.filter(res =>{
-            return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+            return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
           });
         }
       }
@@ -86,15 +86,15 @@ name:any;
       }
       sortV3(){
         this.messages.sort(function (x, y) {
-          let a = x.name.toUpperCase(),
-              b = y.name.toUpperCase();
+          let a = x.username.toUpperCase(),
+              b = y.username.toUpperCase();
           return a == b ? 0 : a > b ? 1 : -1;
       });
       }
       sortV5(){
         this.messages.sort(function (x, y) {
-          let a = x.name.toUpperCase(),
-              b = y.name.toUpperCase();
+          let a = x.username.toUpperCase(),
+              b = y.username.toUpperCase();
           return a == b ? 0 : a < b ? 1 : -1;
       });
       }

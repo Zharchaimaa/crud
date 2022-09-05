@@ -2,12 +2,12 @@
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #userForm="ngForm">
         <div class="form-group">
-          <label for="name">name</label>
-          <input type="text" [(ngModel)]="message.name" 
+          <label for="username">username</label>
+          <input type="text" [(ngModel)]="message.username" 
             class="form-control" 
-            id="name" 
-            name="name" 
-            placeholder="Enter your name"
+            id="username" 
+            name="username" 
+            placeholder="Enter your username"
             required #name="ngModel">
         </div>
         <div [hidden]="!name.pristine" class="alert alert-danger">name is required</div>

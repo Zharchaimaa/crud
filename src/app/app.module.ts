@@ -29,7 +29,14 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MessageComponent } from './message/message.component';
 import { GestionMComponent } from './gestion-m/gestion-m.component';
 import { HeaderComponent } from './header/header.component';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarComponent } from './calendar/calendar.component';
+import dayGridPlugin from '@fullcalendar/daygrid';
+//import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+/*FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,14 +62,16 @@ import { HeaderComponent } from './header/header.component';
     SidenavComponent,
     MessageComponent,
     GestionMComponent,
-    HeaderComponent
+    HeaderComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
