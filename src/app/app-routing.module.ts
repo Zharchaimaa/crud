@@ -21,7 +21,7 @@ import { GestionComponent } from './gestion/gestion.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/',
+        redirectTo: '',
         pathMatch: 'full'
     },
     {

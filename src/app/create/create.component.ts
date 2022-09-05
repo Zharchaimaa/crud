@@ -37,7 +37,7 @@ User=new User();
   }
 
   gotoList() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/gestion']);
   }
 
 }

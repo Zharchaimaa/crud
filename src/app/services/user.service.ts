@@ -18,6 +18,10 @@ export class UserService {
   private deleteEmpUrl = 'http://localhost:8080/app/admin/delete';
   private exporterEmpUrl = 'http://localhost:8080/app/admin/users/export/excel';
   private countEmpUrl = 'http://localhost:8080/app/admin/count';
+  private countFileOKUrl = 'http://localhost:8080/app/admin/countFileOK';
+  //private countEmpUrl = 'http://localhost:8080/app/admin/count';
+  //private countEmpUrl = 'http://localhost:8080/app/admin/count';
+ // private countEmpUrl = 'http://localhost:8080/app/admin/count';
   private getMsgURL = 'http://localhost:8080/app/admin/getAllUsers';
   private deleteMsgUrl = 'http://localhost:8080/app/admin/delete';
   constructor(private http: HttpClient) { }
@@ -52,6 +56,9 @@ export class UserService {
   }
   count():Observable<number>{
     return this.http.get<number>(this.countEmpUrl);
+  }
+  countFileOK():Observable<number>{
+    return this.http.get<number>(this.countFileOKUrl);
   }
   getAllMessage() : Observable<Message[]>{
     return this.http.get<Message[]>(this.getMsgURL);

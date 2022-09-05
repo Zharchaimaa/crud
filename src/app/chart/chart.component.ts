@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart,registerables } from 'chart.js';
+import { FileService } from '../services/file.service';
 import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-chart',
@@ -10,7 +11,13 @@ export class ChartComponent implements OnInit {
   chart1:any;
   chart2:any;
   chart3:any;
-  constructor(private userService : UserService) { }
+  n:any;
+  m:any;
+  o:any;
+  p:any;
+  q:any;r:any;s:any;t:any;
+  a:any;b:any;c:any;d:any;
+  constructor(private userService : UserService,private fileService : FileService) { }
 
   ngOnInit(): void {
     this.chart1 = document.getElementById('my_first_chart'); 
@@ -49,9 +56,9 @@ loadChart2() : void{
   new Chart(this.chart2,{
     type:'bar',
     data:{
-      labels:['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin','Juillet'],
+      labels:['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin','Juillet','Aout','Septembre'],
 datasets:[{
-  data:[65, 59, 80, 81, 56, 55, 40],
+  data:[65, 59, 80, 81, 56, 55, 40,65,95],
   label: 'gestion des users',
   backgroundColor: [
     'rgba(255, 99, 132, 0.2)',
@@ -96,7 +103,7 @@ datasets:[{
           borderColor:'#007bff',
         } ,
       ],
-      labels:['8h','9h','10h','11h','12h','14h','15h','16h','17h','18h'],
+      labels:['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin','Juillet','Aout','septembre'],
       },
       options:{
         responsive:true,
@@ -121,10 +128,104 @@ datasets:[{
   count(){
     this.userService.count();
     this.userService.count().subscribe(res=>{
+      this.n = res;
       console.log(res);
-     // this.empList = res;
+     
     },err=>{
       console.log("erreur")
+    });
+  }
+  countFileOk(){
+    window.location.reload();
+    /*this.fileService.countFileOK();
+    this.fileService.countFileOK().subscribe(res=>{
+      this.m = res;
+      console.log(res);
+     
+    },err=>{
+      console.log("erreur")
+    });*/
+  }
+  countFileKo(){
+    this.fileService.countFileOK();
+    this.fileService.countFileOK().subscribe(res=>{
+      this.c= res;
+      console.log(res);
+     
+    },err=>{
+      console.log("erreur")
+    });
+  }
+  countVNOK(){
+    this.fileService.countVNOK();
+    this.fileService.countVNOK().subscribe(res=>{
+      this.o=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVNKO(){
+    this.fileService.countVNKO();
+    this.fileService.countVNKO().subscribe(res=>{
+      this.p=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVDOK(){
+    this.fileService.countVDOK();
+    this.fileService.countVDOK().subscribe(res=>{
+      this.q=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVDKO(){
+    this.fileService.countVDKO();
+    this.fileService.countVDKO().subscribe(res=>{
+      this.r=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVCOK(){
+    this.fileService.countVCOK();
+    this.fileService.countVCOK().subscribe(res=>{
+      this.s=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVCKO(){
+    this.fileService.countVCKO();
+    this.fileService.countVCKO().subscribe(res=>{
+      this.t=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVMOK(){
+    this.fileService.countVMOK();
+    this.fileService.countVMOK().subscribe(res=>{
+      this.a=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+  }
+  countVMKO(){
+    this.fileService.countVMKO();
+    this.fileService.countVMKO().subscribe(res=>{
+      this.b=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
     });
   }
 }

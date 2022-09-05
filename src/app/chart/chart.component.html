@@ -1,5 +1,62 @@
 <div class="container">
-
+    <div class="row">
+        <div class="col sm-4">
+            <div class="card text-white bg-primary mb-3" >
+                <div class="card-header" style="font-size: 14px; font-weight: bold;">Nombre de fichier OK</div>
+                <div class="card-body">
+                    
+                    <button class="btn btn-outline-warning" (click)="countFileOk()">visualiser</button> 
+                  <h5 class="card-title">{{m}} <p class="card-text">Après avoir lancer le batch on a pu avoir {{m}} fichiers ok</p>
+                    <hr>
+                      <h5 class="card-title">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col sm-3"> <button class="btn btn-info" (click)="countVNOK()">valid name </button>{{o}}</div>
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVDOK()">valid date </button>{{q}}</div>
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVCOK()">valid column </button>{{s}}</div>
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVMOK()">valid montant </button>{{a}}</div>
+                            </div>
+                        </div>
+                      </h5>
+                  </h5>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col sm-4">
+                <div class="card text-white bg-warning  mb-3">
+                    <div class="card-header" style="font-size: 14px; font-weight: bold;">Nombre de fichier KO</div>
+                    <div class="card-body">
+                        <button class="btn btn-outline-success" (click)="countFileKo()">refréchir</button> 
+                        <h5 class="card-title"><p class="card-text">le nombre total de fichier KO est par défaut 0.</p>
+                        <hr>
+                      
+                        <div class="container">
+                            <div class="row">
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVNKO()">valid name </button><p>{{p}}</p></div>
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVDKO()">valid date </button>{{r}}</div>
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVCKO()">valid column </button>{{t}}</div>
+                                <div class="col sm-3"> <button class="btn btn-info"  (click)="countVMKO()">valid montant </button>{{b}}</div>
+                            </div>
+                        </div>
+                      </h5>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col sm-4">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-header"style="font-size: 14px; font-weight: bold;">Nombre des utilisateurs</div>
+                        <div class="card-body">
+                            <button class="btn btn-outline-warning" (click)="count()">Compter</button> 
+                            <h5 class="card-title">{{ n}} <p class="card-text">Le nombre {{n}} est le nombre total des utilisateurs .</p></h5>
+                            
+                            <hr>
+                         
+                        </div>
+                      </div>
+                    </div>
+    </div>
     <div class="row">
         <div class="col sm-6">
             <div class="card">
@@ -24,13 +81,17 @@
 </div>
 </div>
 </div>
-<div class="col sm-6">
+<!--<div class="col sm-6">
     <div class="card bg-info">
         <div class="card-header" style="font-size: 14px; font-weight: bold;"> Nombre des utilisateurs</div>
         <div class="card-body">
+             {{n}}
           <button class="btn btn-outline-success" (click)="count()">Compter</button>  
 </div>
 </div>
+</div>-->
+
+
 </div>
-</div>
+
 </div>

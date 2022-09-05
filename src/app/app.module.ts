@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 //import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-
+//import { MatMenuModule} from '@angular/material/menu';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartComponent } from './chart/chart.component';
@@ -28,6 +28,7 @@ import { ExporterComponent } from './exporter/exporter.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MessageComponent } from './message/message.component';
 import { GestionMComponent } from './gestion-m/gestion-m.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { GestionMComponent } from './gestion-m/gestion-m.component';
     ExporterComponent,
     SidenavComponent,
     MessageComponent,
-    GestionMComponent
+    GestionMComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
