@@ -10,7 +10,7 @@ export class TodoService {
   private getTodoURL = 'http://localhost:8080/app/admin/getAlltodoList';
   private getTodoIdURL = 'http://localhost:8080/app/admin/getTodoListById';
   private addTodoURL = 'http://localhost:8080/app/admin/addTodo';
-  private updateTodoUrl = 'http://localhost:8080/app/auth/updTask';
+  private updateTodoUrl = 'http://localhost:8080/app/admin/updTask';
   private deleteTodoUrl = 'http://localhost:8080/app/admin/deleteTodo';
   constructor(private http: HttpClient) { }
   addTodo(todo : Todo) : Observable<Todo>{

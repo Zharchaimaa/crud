@@ -6,6 +6,7 @@ import { JwtResponse } from './jwt-response';
 import { AuthLoginInfo } from './login-info';
 //import { SignUpInfo } from './signup-info';
 import { User } from '../model/user';
+import { SignUpInfo } from './signup-info';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +18,7 @@ const httpOptions = {
 export class AuthService {
 id :any;
   private loginUrl = 'http://localhost:8080/app/auth/login';
+  private signupUrl = 'http://localhost:8080/app/auth/signup';
   /*private addEmpURL = 'http://localhost:8080/app/admin/addUsers';
   private getEmpURL = 'http://localhost:8080/app/admin/getUsers';
   private updateEmpUrl = 'http://localhost:8080/app/auth/updateUser';
@@ -28,10 +30,10 @@ id :any;
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
   }
 
-  /*signUp(info: SignUpInfo): Observable<string> {
+  signUp(info: SignUpInfo): Observable<string> {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
-  getAllUser() : Observable<User[]>{
+  /*getAllUser() : Observable<User[]>{
     return this.http.get<User[]>(this.getEmpURL);
   }
   addUser(user : User) : Observable<User>{

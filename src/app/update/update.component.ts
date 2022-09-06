@@ -38,7 +38,7 @@ export class UpdateComponent implements OnInit {
   }
 
   gotoList() {
-    this.route.navigate(['/']);
+    this.route.navigate(['/gestion']);
   }
 
 }

@@ -34,7 +34,7 @@ export class UpdatetodoComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.updateTask(); 
-
+    //this.save();
   }
 
   gotoList() {

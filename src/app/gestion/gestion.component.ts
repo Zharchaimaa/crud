@@ -132,11 +132,11 @@ export class GestionComponent implements OnInit {
         return a == b ? 0 : a < b ? 1 : -1;
     });
     }
-    editEmploye(emp:User){
+    editEmploye(data:any){
 
-      this.myemp = emp;
+      
      
-    this.route.navigate(['/modifier']);
+    this.route.navigate(['/modifier',data]);
 
     }
     exporter(){

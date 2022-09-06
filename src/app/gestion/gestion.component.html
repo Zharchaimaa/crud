@@ -36,8 +36,8 @@
                 <td>{{employee?.roles[0]?.name}}</td>
                 <td>
                   <!-- (click)="editUser(employee)" | paginate: { itemsPerPage: 10, currentPage: p }  <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
-                  <a routerLink="modifier" routerLinkActive="active">
-                  <button type="button" class="btn btn-outline-primary me-2" (click)="editEmploye(employee)"><i class="fa fa-edit"></i>&nbsp; Modifier</button></a>
+                  
+                  <button type="button" class="btn btn-outline-primary me-2" (click)="editEmploye(employee.id)"><i class="fa fa-edit"></i>&nbsp; Modifier</button>
                     <button type="button" class="btn btn-outline-danger" (click)="deleteUser(employee)"><i class="fa fa-trash"></i>&nbsp;Supprimer</button>
                     <button (click)="employeeDetails(employee.id)" class="btn btn-outline-info" style="margin-left: 10px"><i class="fa fa-info-circle"></i>&nbsp;Détails</button>
                 </td>

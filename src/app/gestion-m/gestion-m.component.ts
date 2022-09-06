@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 export class GestionMComponent implements OnInit {
 messages : Message[]=[];
 username:any;
+
   constructor(private userService : UserService, private route :Router) { }
 
   ngOnInit(): void {
@@ -98,8 +99,8 @@ username:any;
           return a == b ? 0 : a < b ? 1 : -1;
       });
       }
-      editMessage(msg:Message){
-  
+      editMessage(data:any){
+        //this.route.navigate(['/modifierM',data]);
        // this.myemp = emp;
        
       this.route.navigate(['/modifier']);

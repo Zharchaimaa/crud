@@ -56,13 +56,13 @@ const routes: Routes = [
         path:'ajouter',component: CreateComponent
     },
     {
-        path:'modifier',component:UpdateComponent
+        path:'modifier/:id',component:UpdateComponent
     },
     {
         path:'ajoutertodo',component:CreatetodoComponent
     },
     {
-        path:'modifiertodo',component:UpdatetodoComponent
+        path:'modifiertodo/:id',component:UpdatetodoComponent
     },
 
      {

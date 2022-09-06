@@ -1,3 +1,4 @@
+import { SignUpInfo } from './../auth/signup-info';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,7 +9,8 @@ import { Message } from '../model/message';
   providedIn: 'root'
 })
 export class UserService {
-
+  private addURL = 'http://localhost:8080/app/auth/signup';
+  private addU = 'http://localhost:8080/app/admin/addU';
   private userUrl = 'http://localhost:8080/app/test/user';
   private adminUrl = 'http://localhost:8080/app/test/admin';
   private addEmpURL = 'http://localhost:8080/app/admin/addUsers';
@@ -38,6 +40,12 @@ export class UserService {
   }
   getAllUser() : Observable<User[]>{
     return this.http.get<User[]>(this.getEmpURL);
+  }
+  addUs(user:SignUpInfo) : Observable<User>{
+    return this.http.post<User>(this.addU,user);
+  }
+  add(user:SignUpInfo) : Observable<User>{
+    return this.http.post<User>(this.addURL,user);
   }
   addUser(user : User) : Observable<User>{
     return this.http.post<User>(this.addEmpURL,user);
