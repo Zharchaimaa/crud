@@ -56,7 +56,7 @@
                     }"></i></span>
                   </td>
                   <td><a routerLink="modifier" routerLinkActive="active">
-                    <button type="button" class="btn btn-outline-primary me-2" (click)="editEmploye(task)"><i class="fa fa-edit"></i>&nbsp; Modifier</button></a>
+                    <button type="button" class="btn btn-outline-primary me-2" (click)="editTask(task,task.id)"><i class="fa fa-edit"></i>&nbsp; Modifier</button></a>
                       <button type="button" class="btn btn-outline-danger" (click)="deleteTodo(task)"><i class="fa fa-trash"></i>&nbsp;Supprimer</button>
                       <button (click)="todoDetails(task.id)" class="btn btn-outline-info" style="margin-left: 10px"><i class="fa fa-info-circle"></i>&nbsp;Détails</button>
                   </td>

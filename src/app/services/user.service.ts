@@ -14,9 +14,9 @@ export class UserService {
   private addEmpURL = 'http://localhost:8080/app/admin/addUsers';
   private getEmpURL = 'http://localhost:8080/app/admin/getAllUsers';
   private getEmpIdURL = 'http://localhost:8080/app/admin/getAllUserById';
-  private updateEmpUrl = 'http://localhost:8080/app/auth/updateUser';
+  private updateEmpUrl = 'http://localhost:8080/app/admin/updUsers';
   private deleteEmpUrl = 'http://localhost:8080/app/admin/delete';
-  private exporterEmpUrl = 'http://localhost:8080/app/admin/users/export/excel';
+  private exporterEmpUrl = 'http://localhost:8080/app/admin/excel';
   private countEmpUrl = 'http://localhost:8080/app/admin/count';
   private countFileOKUrl = 'http://localhost:8080/app/admin/countFileOK';
   //private countEmpUrl = 'http://localhost:8080/app/admin/count';

@@ -1,5 +1,5 @@
 
-<h3>Update Employee</h3>
+<h3>Update task</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <!--<div class="form-group">
@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <label for="password">completed</label>
-      <input type="password" class="form-control" id="completed" required [(ngModel)]="task.completed" name="completed">
+      <input type="text" class="form-control" id="completed" required [(ngModel)]="task.completed" name="completed" >
     </div>
 
 

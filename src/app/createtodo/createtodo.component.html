@@ -1,14 +1,31 @@
 <h3>Ajouter un nouveau task</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
+  <form (ngSubmit)="onSubmit()" >
+    <div class="form-group" >
       <label for="label">label</label>
       <input type="text" class="form-control" id="label" required [(ngModel)]="todo.label" name="label">
+     <!-- [formGroup]="myform"
+      [ngClass]="{
+      'has-danger': label.invalid && (label.dirty || label.touched),
+      'has-success': label.valid && (label.dirty || label.touched)
+    }"<div class="form-control-feedback"
+         *ngIf="label.errors && (label.dirty || label.touched)">
+      <p *ngIf="label.errors.required">Label is required</p>
+      
+    </div>-->
     </div>
 
-    <div class="form-group">
+    <div class="form-group" >
       <label for="Completed">Completed</label>
-      <input type="text" class="form-control" id="Completed" required [(ngModel)]="todo.completed" name="Completed">
+      <input type="text" class="form-control" id="Completed" required [(ngModel)]="todo.completed" name="Completed" >
+      <!--<div class="form-control-feedback"
+         *ngIf="Completed.errors && (Completed.dirty || Completed.touched)">
+      <p *ngIf="Completed.errors.required">Completed is required</p>
+      [ngClass]="{
+      'has-danger': Completed.invalid && (Completed.dirty || Completed.touched),
+      'has-success': Completed.valid && (Completed.dirty || Completed.touched)
+    }"
+    </div>-->
     </div>
     <!--<div class="form-group">
       <label for="role">Role</label>
@@ -17,8 +34,12 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
-    </div>-->
+    </div><button class="btn btn-primary" type="button" (click)="clear()">Clear</button>-->
     <button type="submit" class="btn btn-success">Submit</button>
+   
+    <!--<div class="popover-wrapper">
+      <a class="glyphicon glyphicon-time" oncancel="yourfunction" ng-if="activity.type === 'continuous'" ng-style=" { 'border': 'none', 'color': activity.timer.color.icon, 'cursor': 'pointer'}" editable-select="manualTimer.status" e-ng-options="s.value as s.text for s in manualTimerStatuses" onaftersave="timerSet()" ></a>
+   </div>-->
   </form>
 </div>
 <!--

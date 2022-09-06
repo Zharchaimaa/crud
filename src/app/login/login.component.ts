@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
@@ -12,6 +13,7 @@ import { User } from '../model/user';
 })
 export class LoginComponent implements OnInit {
   form: any = {};
+  f:FormGroup;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';

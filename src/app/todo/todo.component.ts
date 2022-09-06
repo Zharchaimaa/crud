@@ -62,8 +62,8 @@ export class TodoComponent implements OnInit {
       console.log("erreur")
     });
   }
-  editEmploye(data:any){
-
+  editTask(data:any,id:number){
+    this.route.navigate(['/modifiertodo',id]);
   }
   todoDetails(id :number){
     this.route.navigate(['/todoDetails',id]);

@@ -32,6 +32,7 @@ import { HeaderComponent } from './header/header.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './calendar/calendar.component';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { MessageDetailsComponent } from './message-details/message-details.component';
 //import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 /*FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -63,7 +64,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
     MessageComponent,
     GestionMComponent,
     HeaderComponent,
-    CalendarComponent
+    CalendarComponent,
+    MessageDetailsComponent
   ],
   imports: [
     BrowserModule,

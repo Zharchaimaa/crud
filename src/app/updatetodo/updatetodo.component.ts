@@ -25,7 +25,7 @@ export class UpdatetodoComponent implements OnInit {
         this.task = data;
       }, error => console.log(error));
   }
-  updateEmployee() {
+  updateTask() {
     this.todoService.updateT( this.id,this.task)
       .subscribe(data => console.log(data), error => console.log(error));
     this.task = new Todo();
@@ -33,11 +33,11 @@ export class UpdatetodoComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    this.updateEmployee(); 
+    this.updateTask(); 
 
   }
 
   gotoList() {
-    this.route.navigate(['/']);
+    this.route.navigate(['/todo']);
   }
 }

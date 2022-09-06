@@ -1,3 +1,5 @@
+import { UpdatetodoComponent } from './updatetodo/updatetodo.component';
+import { MessageDetailsComponent } from './message-details/message-details.component';
 import { GestionMComponent } from './gestion-m/gestion-m.component';
 import { MessageComponent } from './message/message.component';
 import { ChartComponent } from './chart/chart.component';
@@ -59,6 +61,9 @@ const routes: Routes = [
     {
         path:'ajoutertodo',component:CreatetodoComponent
     },
+    {
+        path:'modifiertodo',component:UpdatetodoComponent
+    },
 
      {
         path: 'home',
@@ -77,7 +82,9 @@ const routes: Routes = [
         path: 'files/:id',component:FileDetailsComponent
     },
     { path: 'details/:id', component:DetailsComponent }
-    ,
+    ,{
+        path:'detailsM/:id',component:MessageDetailsComponent
+    },
     {
         path:'**',component : NotfoundComponent
     }
