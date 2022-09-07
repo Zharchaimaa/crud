@@ -1,19 +1,12 @@
-<nav class="navbar">
-    <div class="parent">
-   <div class="child position-relative">
-    <i class="fa fa-search position-absolute"></i>
-     <input class="form-control" type="search" name="username" [(ngModel)]="username" (ngModelChange)="Search()"
-      placeholder="Veuillez entrer le mot à chercher " />
-    </div>
-  </div> 
-  </nav>
+<!--<nav class="navbar">
+  </nav>-->
 <div class="card">
     <div class="card-body">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h2>Liste des Utilisateurs</h2> 
           <span>
-            <i class="fa fa-file-export"></i><button class="btn btn-outline-info" (click)="exportexcel()" style="float: right; margin-top: -30px; margin-right: 20px;">Exporter</button>
+            <i class="fa fa-file-export"></i><button class="btn btn-outline-info" (click)="exportexcel()" style="float: right; margin-top: -30px; margin-right: 20px;"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exporter</button>
           </span>
         </div>
         <div class="panel-body">
@@ -26,6 +19,36 @@
                 <th scope="col">Username<!--<button (click)="sortV3()"></button>--><i class="fa fa-arrow-up" (click)="sortV3()"></i> &nbsp;<i class="fa fa-arrow-down" (click)="sortV5()"></i></th>
                 <th scope="col">Role</th>
                 <th scope="col">Action</th>
+              </tr>
+              <tr>
+                <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                    <input class="form-control" type="search" name="id" [(ngModel)]="id" (ngModelChange)="Search()"
+                     />
+                   </div>
+                 </div> </th>
+                 <th><div class="parent" style="width: 250px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                    <input class="form-control" type="search" name="email" [(ngModel)]="email" (ngModelChange)="Search1()"
+                     />
+                   </div>
+                 </div> </th>
+                 <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                    <input class="form-control" type="search" name="username" [(ngModel)]="username" (ngModelChange)="Search2()"
+                      />
+                   </div>
+                 </div> </th>
+                 <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                    <input class="form-control" type="search" name="role" [(ngModel)]="role" (ngModelChange)="Search3()"
+                      />
+                   </div>
+                 </div> </th>
               </tr>
             </thead>
             <tbody>

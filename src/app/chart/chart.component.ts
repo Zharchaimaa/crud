@@ -19,6 +19,7 @@ export class ChartComponent implements OnInit {
   p:any;
   q:any;r:any;s:any;t:any;
   a:any;b:any;c:any;d:any;
+  mehdi:any;
   constructor(private userService : UserService,private fileService : FileService) { }
 
   ngOnInit(): void {
@@ -34,6 +35,85 @@ export class ChartComponent implements OnInit {
     this.chart4 = document.getElementById('my_fourth_chart');
     Chart.register(...registerables);
     this.loadChart4();
+    this.userService.count().subscribe(res=>{
+      this.n = res;
+      console.log(res);
+     
+    },err=>{
+      console.log("erreur")
+    });
+
+    this.fileService.countVNOK().subscribe(res=>{
+      this.o=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+    this.fileService.countVNKO().subscribe(res=>{
+      this.p=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+    this.fileService.countVDKO().subscribe(res=>{
+      this.r=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+    this.fileService.countVCKO().subscribe(res=>{
+      this.t=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+    this.fileService.countFileOK().subscribe(res=>{
+      this.m = res;
+      console.log(res);
+     
+    },err=>{
+      console.log("erreur")
+    });
+
+    this.fileService.countVDOK().subscribe(res=>{
+      this.q=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+    this.fileService.countFileOK().subscribe(res=>{
+      this.c= res;
+      console.log(res);
+     
+    },err=>{
+      console.log("erreur")
+    });
+
+    this.fileService.countVMOK().subscribe(res=>{
+      this.a=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+   this.fileService.countVMKO().subscribe(res=>{
+      this.b=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
+
+    this.fileService.countVCOK().subscribe(res=>{
+      this.s=res;
+      console.log(res);
+    },err=>{
+      console.log("erreur");
+    });
   }
   loadChart3(){
     new Chart(this.chart3,
@@ -47,7 +127,7 @@ export class ChartComponent implements OnInit {
         ],
           datasets:[{
             label: 'Fichier ko',
-            data:[300,50,100,30],
+            data:[this.t,this.p,this.o,this.n],
             backgroundColor: [
               'rgb(255, 99, 132)',
               'rgb(54, 162, 235)',
@@ -69,10 +149,12 @@ export class ChartComponent implements OnInit {
           'valid date',
           'valid montant',
           'valid column'
-        ],
+        ]
+        ,
           datasets:[{
+            
+            data:[10,20,40,50],
             label: 'Fichier ok',
-            data:[300,50,100,35],
             backgroundColor: [
               'rgb(255, 99, 132)',
               'rgb(54, 162, 235)',
@@ -91,7 +173,7 @@ loadChart2() : void{
     data:{
       labels:['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin','Juillet','Aout','Septembre'],
 datasets:[{
-  data:[65, 59, 80, 81, 56, 55, 40,65,95],
+  data:[5, 10, 20, 12, 6, 18, 23,2,11],
   label: 'gestion des users',
   backgroundColor: [
     'rgba(255, 99, 132, 0.2)',
@@ -193,12 +275,13 @@ datasets:[{
   countVNOK(){
    this.test= this.fileService.countVNOK();
    console.log(this.test);
-    this.fileService.countVNOK().subscribe(res=>{
+   this.mehdi=this.fileService.countVNOK().subscribe(res=>{
       this.o=res;
       console.log(res);
     },err=>{
       console.log("erreur");
     });
+    console.log(this.mehdi);
   }
   countVNKO(){
     this.fileService.countVNKO();

@@ -16,6 +16,10 @@ export class GestionComponent implements OnInit {
   empList : User[] = [];
   username:any;
   p: number = 1;
+  id:any;
+  email:any;
+  role:any;
+
     // collection: any[] = someArrayOfThings; 
   myemp:any={
     id:"",
@@ -92,11 +96,38 @@ export class GestionComponent implements OnInit {
       this.route.navigate(['details',id]);
     }
     Search(){
+      if(this.id ==""){
+        this.ngOnInit();
+      }else{
+        this.empList = this.empList.filter(res =>{
+          return res.id.toLocaleLowerCase().match(this.id.toLocaleLowerCase());
+        });
+      }
+    }
+    Search1(){
+      if(this.email ==""){
+        this.ngOnInit();
+      }else{
+        this.empList = this.empList.filter(res =>{
+          return res.email.toLocaleLowerCase().match(this.email.toLocaleLowerCase());
+        });
+      }
+    }
+    Search2(){
       if(this.username ==""){
         this.ngOnInit();
       }else{
         this.empList = this.empList.filter(res =>{
           return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+        });
+      }
+    }
+    Search3(){
+      if(this.role ==""){
+        this.ngOnInit();
+      }else{
+        this.empList = this.empList.filter(res =>{
+          return res.role[0].toLocaleLowerCase().match(this.role.toLocaleLowerCase());
         });
       }
     }

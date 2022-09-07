@@ -13,10 +13,14 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./visualiser.component.css']
 })
 export class VisualiserComponent implements OnInit {
-  fileName= 'ExcelSheet.xlsx';  
+  fileName= 'ExcelFile.xlsx';  
   files: Observable<File[]>;
   fileList : File[] = [];
+  id:any;
   filename:any;
+  entite:any;
+  filedate:any;
+  dateTraitement:any;
   constructor(private fileService: FileService,private route :Router,private userService: UserService) { }
 
   ngOnInit(): void {
@@ -34,11 +38,47 @@ export class VisualiserComponent implements OnInit {
     this.route.navigate(['files',id]);
   }
   Search(){
+    if(this.entite ==""){
+      this.ngOnInit();
+    }else{
+      this.fileList = this.fileList.filter(res =>{
+        return res.entite.toLocaleLowerCase().match(this.entite.toLocaleLowerCase());
+      });
+    }
+  }
+  Search1(){
     if(this.filename ==""){
       this.ngOnInit();
     }else{
       this.fileList = this.fileList.filter(res =>{
         return res.filename.toLocaleLowerCase().match(this.filename.toLocaleLowerCase());
+      });
+    }
+  }
+  Search4(){
+    if(this.dateTraitement ==""){
+      this.ngOnInit();
+    }else{
+      this.fileList = this.fileList.filter(res =>{
+        return res.dateTraitement.match(this.dateTraitement);
+      });
+    }
+  }
+  Search2(){
+    if(this.filedate ==""){
+      this.ngOnInit();
+    }else{
+      this.fileList = this.fileList.filter(res =>{
+        return res.filedate.match(this.filedate);
+      });
+    }
+  }
+  Search3(){
+    if(this.id ==""){
+      this.ngOnInit();
+    }else{
+      this.fileList = this.fileList.filter(res =>{
+        return res.id.match(this.id);
       });
     }
   }

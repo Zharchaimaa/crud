@@ -11,22 +11,22 @@
 </nav> -->
 
 <div class="container">
-  <nav class="navbar">
-    <div class="parent">
+  <!-- <nav class="navbar">
+   <div class="parent">
       <div class="child position-relative">
        <i class="fa fa-search position-absolute"></i>
        <input class="form-control" type="text" name="username" [(ngModel)]="filename" (ngModelChange)="Search()" placeholder="entrer le mot à chercher">
        </div>
-     </div>   
+     </div>  
     
-  </nav>
+  </nav>--> 
   <div class="card">
     <div class="card-body">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h2>Liste des fichiers Controlés
             <span>
-              <button class="btn btn-outline-info" (click)="exportexcel()" style="float: right; margin-top: 0px; margin-right: 20px;">Exporter</button>
+              <button class="btn btn-outline-info" (click)="exportexcel()" style="float: right; margin-top: 0px; margin-right: 20px;"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exporter</button>
             </span>
           </h2>
         </div>
@@ -55,6 +55,38 @@
                 <th>Montant Valide</th>
                 <th>Actions</th>
     
+              </tr>
+              <tr>
+                <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                   <input class="form-control" type="text" name="id" [(ngModel)]="id" (ngModelChange)="Search3()" >
+                   </div>
+                 </div>   </th>
+                 <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                   <input class="form-control" type="text" name="entite" [(ngModel)]="entite" (ngModelChange)="Search()">
+                   </div>
+                 </div>   </th>
+                 <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                   <input class="form-control" type="text" name="username" [(ngModel)]="filename" (ngModelChange)="Search1()">
+                   </div>
+                 </div>   </th>
+                 <th><div class="parent" style="width: 100px;height: 25px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                   <input class="form-control" type="text" name="filedate" [(ngModel)]="filedate" (ngModelChange)="Search2()">
+                   </div>
+                 </div>   </th>
+                 <th><div class="parent" style="width: 100px;">
+                  <div class="child position-relative">
+                   <i class="fa fa-search position-absolute"></i>
+                   <input class="form-control" type="text" name="dateTraitement" [(ngModel)]="dateTraitement" (ngModelChange)="Search()">
+                   </div>
+                 </div>   </th>
               </tr>
             </thead>
             <tbody>
