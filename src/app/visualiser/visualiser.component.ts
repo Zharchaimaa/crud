@@ -5,6 +5,7 @@ import { File } from '../model/file';
 import { FileService } from '../services/file.service';
 import Swal from 'sweetalert2'
 import { UserService } from '../services/user.service';
+import * as XLSX from 'xlsx'; 
 
 @Component({
   selector: 'app-visualiser',
@@ -12,6 +13,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./visualiser.component.css']
 })
 export class VisualiserComponent implements OnInit {
+  fileName= 'ExcelSheet.xlsx';  
   files: Observable<File[]>;
   fileList : File[] = [];
   filename:any;
@@ -106,4 +108,19 @@ export class VisualiserComponent implements OnInit {
     })
       
   }
+
+  exportexcel(): void 
+    {
+       /* table id is passed over here */   
+       let element = document.getElementById('excel-table'); 
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+       /* generate workbook and add the worksheet */
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+       /* save to file */
+       XLSX.writeFile(wb, this.fileName);
+			
+    }
 }

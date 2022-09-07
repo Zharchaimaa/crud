@@ -1,3 +1,4 @@
+import { CalendarComponent } from './calendar/calendar.component';
 import { UpdatetodoComponent } from './updatetodo/updatetodo.component';
 import { MessageDetailsComponent } from './message-details/message-details.component';
 import { GestionMComponent } from './gestion-m/gestion-m.component';
@@ -84,6 +85,9 @@ const routes: Routes = [
     { path: 'details/:id', component:DetailsComponent }
     ,{
         path:'detailsM/:id',component:MessageDetailsComponent
+    },
+    {
+        path:'calendar',component:CalendarComponent
     },
     {
         path:'**',component : NotfoundComponent

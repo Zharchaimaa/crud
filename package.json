@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
+    "@angular/cdk": "^14.2.0",
     "@angular/common": "~9.1.0",
     "@angular/compiler": "~9.1.0",
     "@angular/core": "~9.1.0",
@@ -27,12 +28,14 @@
     "bootstrap": "^5.2.0",
     "chart.js": "^3.9.1",
     "date-fns": "^2.29.2",
+    "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
     "ng2-charts": "^4.0.0",
     "ngx-bootstrap": "^9.0.0",
     "rxjs": "~6.5.4",
     "sweetalert2": "^11.4.29",
     "tslib": "^1.14.1",
+    "xlsx": "^0.18.5",
     "zone.js": "^0.11.8"
   },
   "devDependencies": {

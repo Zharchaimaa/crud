@@ -59,8 +59,8 @@ export class UserService {
   deleteUser(user:User) : Observable<User>{
     return this.http.delete<User>(this.deleteEmpUrl+'/'+user.id);
   }
-  exporter():Observable<User[]>{
-    return this.http.get<User[]>(this.exporterEmpUrl);
+  exporter():Observable<any>{
+    return this.http.get(this.exporterEmpUrl,{ responseType: 'arraybuffer' });
   }
   count():Observable<number>{
     return this.http.get<number>(this.countEmpUrl);
